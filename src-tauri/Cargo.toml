@@ -1,6 +1,6 @@
 [package]
 name = "fb-messenger-desktop"
-version = "0.1.4"
+version = "0.1.5"
 description = "A lightweight Tauri wrapper for Messenger."
 authors = ["vaclis"]
 license = ""

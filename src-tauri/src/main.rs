@@ -1,3 +1,4 @@
+mod main_window;
 mod settings;
 mod shortcuts;
 mod theme;
@@ -18,10 +19,10 @@ fn main() {
             settings::save_settings
         ])
         .setup(|app| {
+            let settings = settings::read_settings(app.handle())?;
+            main_window::setup(app, &settings)?;
             tray::setup(app)?;
             shortcuts::setup(app)?;
-
-            let settings = settings::read_settings(app.handle())?;
             theme::apply_theme(app.handle(), &settings);
 
             if settings.start_minimized {
